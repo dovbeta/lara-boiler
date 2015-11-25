@@ -5,6 +5,7 @@
  */
 get('/', 'FrontendController@index')->name('home');
 get('macros', 'FrontendController@macros');
+resource('flats', 'FlatsController');
 
 /**
  * These frontend controllers require the user to be logged in
