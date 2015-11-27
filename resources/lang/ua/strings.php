@@ -13,23 +13,23 @@ return [
     |
     */
 
-    'here' => 'Здесь',
-    'all_rights_reserved' => 'Все права защищены.',
+    'here' => 'Тут',
+    'all_rights_reserved' => 'Всі права захищені.',
     'boilerplate_link' => 'Laravel Boilerplate',
     'backend' => [
-        'WELCOME' => 'Добро пожаловать',
-        'dashboard_title' => 'Панель администрирования',
+        'WELCOME' => 'Ласкаво просимо',
+        'dashboard_title' => 'Панель адміністрування',
     ],
     'based_on' => [
-        'permission' => 'На основе разрешений - ',
-        'role' => 'На основе ролей - ',
+        'permission' => 'На основі дозволів - ',
+        'role' => 'На основі ролей - ',
     ],
-    'be_right_back' => 'Возвращайтесь.',
-    'cancel_button' => 'Отменить',
-    'click_here_to_confirm_account' => 'Нажите для подтверждения аккаунта:',
-    'click_here_to_reset' => 'Нажмите для сброса пароля:',
-    'edit' => 'Редактировать',
-    'full_name' => 'Полное имя',
+    'be_right_back' => 'Повертайтесь.',
+    'cancel_button' => 'Відмінити',
+    'click_here_to_confirm_account' => 'Натисніть для підтвердження аккаунта:',
+    'click_here_to_reset' => 'Нажміть для скидання пароля:',
+    'edit' => 'Редагувати',
+    'full_name' => 'Повне ім\'я',
     'if_confirmed_is_off' => '(Если подтверждение выключено)',
     'js_injected_from_controller' => 'Ввод Javascript из контроллера',
     'member_since' => 'Участник с',
@@ -70,5 +70,6 @@ return [
     'permission' => '[0,1]Разрешение|[2,Inf]Разрешений',
     'role' => '[0,1]Роль|[2,Inf]Ролей',
     'user' => '[0,1]Пользователь|[2,Inf]Пользователей',
+    'last_modified' => 'Востаннє відредаговано :last_modified, :user_name',
 
 ];

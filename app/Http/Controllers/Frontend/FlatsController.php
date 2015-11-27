@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Frontend;
 use App\Flat;
 use App\Http\Requests\Frontend\Flat\StoreFlatRequest;
 use App\Meter;
+use App\Models\Access\User\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class FlatsController extends Controller
@@ -59,7 +62,8 @@ class FlatsController extends Controller
         $flat = Flat::where('number', '=', $number)->first();
         if (!$flat)
             throw (new ModelNotFoundException);
-        return view('frontend.flats.show', compact('flat'));
+        $user = User::find($flat->updated_by);
+        return view('frontend.flats.show', compact('flat', 'user'));
     }
 
     /**
@@ -86,8 +90,9 @@ class FlatsController extends Controller
     public function update(StoreFlatRequest $request, $id)
     {
         $flat = Flat::findOrFail($id);
+        $flat->updated_by = 1;
         $flat->update($request->all());
-        return redirect('flats')->withFlashSuccess(trans('alerts.flats.updated'));
+        return redirect()->action('Frontend\FlatsController@show', $flat->number)->withFlashSuccess(trans('alerts.flats.updated'));
     }
 
     /**
