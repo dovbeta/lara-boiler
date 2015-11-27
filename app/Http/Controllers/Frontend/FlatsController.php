@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Flat;
 use App\Http\Requests\Frontend\Flat\StoreFlatRequest;
+use App\Meter;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
@@ -102,4 +103,21 @@ class FlatsController extends Controller
         $flat->destroy();
         return redirect('flats')->withFlashSuccess(trans('alerts.flats.deleted'));
     }
+
+    /**
+     * @param int $flatId
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function meters($flatId)
+    {
+        $meters = Meter::where('flat_id', '=', $flatId)->orderBy('number')->get();
+        return view('frontend.meters.index', compact(['meters', 'flatId']));
+    }
+
+    public function addMeter($flatId)
+    {
+        $flat = Flat::findOrFail($flatId);
+        return view('frontend.meters.create', compact('flat'));
+    }
+
 }

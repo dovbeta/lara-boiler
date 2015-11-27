@@ -6,6 +6,9 @@
 get('/', 'FrontendController@index')->name('home');
 get('macros', 'FrontendController@macros');
 resource('flats', 'FlatsController');
+get('flats/{id}/meters', 'FlatsController@meters');
+get('flats/{id}/meters/add', 'FlatsController@addMeter');
+resource('meters', 'MetersController');
 
 /**
  * These frontend controllers require the user to be logged in

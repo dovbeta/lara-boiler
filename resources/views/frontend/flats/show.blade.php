@@ -32,6 +32,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             {!! link_to_action('Frontend\FlatsController@edit', '', [$flat->number], ['class'=>'fa fa-edit btn btn-primary', 'title' => trans('crud.edit_button')]) !!}
+                            {!! link_to_action('Frontend\FlatsController@meters', '', [$flat->id], ['class'=>'fa fa-tachometer btn btn-primary', 'title' => trans('navs.meters')]) !!}
                         </div>
                     </div>
                 </div>
