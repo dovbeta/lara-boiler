@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\DB;
 
 class FlatsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('osbb', ['except' => ['index','show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *

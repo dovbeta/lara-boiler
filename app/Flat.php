@@ -14,6 +14,9 @@ class Flat extends Model
         'area',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function meters()
     {
         return $this->hasMany('App\Meter');

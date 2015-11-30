@@ -5,7 +5,7 @@
  */
 get('/', 'FrontendController@index')->name('home');
 get('macros', 'FrontendController@macros');
-resource('flats', 'FlatsController');
+resource('flats', 'FlatsController', ['middleware' => 'osbb']);
 get('flats/{id}/meters', 'FlatsController@meters');
 get('flats/{id}/meters/add', 'FlatsController@addMeter');
 resource('meters', 'MetersController');
