@@ -17,7 +17,7 @@ return [
     'change_password' => 'Змінити пароль',
     'administration' => 'Адміністрування',
     'dashboard' => 'Огляд',
-    'home' => 'Додому',
+    'home' => '"Пасічна 171"',
     'login' => 'Вхід',
     'logout' => 'Вихід',
     'macros' => 'Макрос',

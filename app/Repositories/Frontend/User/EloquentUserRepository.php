@@ -44,6 +44,8 @@ class EloquentUserRepository implements UserContract {
 	public function create($data, $provider = false) {
 		$user = User::create([
 			'name' => $data['name'],
+			'last_name' => $data['last_name'],
+			'flat_id' => $data['flat'],
 			'email' => $data['email'],
 			'password' => $provider ? null : $data['password'],
 			'confirmation_code' => md5(uniqid(mt_rand(), true)),

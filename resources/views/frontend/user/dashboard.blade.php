@@ -22,7 +22,7 @@
                             <table class="table table-striped table-hover table-bordered dashboard-table">
                                 <tr>
                                     <th>{{ trans('validation.attributes.name') }}</th>
-                                    <td>{!! $user->name !!}</td>
+                                    <td>{!! $user->name . ' ' . $user->last_name !!}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ trans('validation.attributes.email') }}</th>

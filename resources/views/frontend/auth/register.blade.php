@@ -20,6 +20,20 @@
 						</div>
 
 						<div class="form-group">
+							{!! Form::label('last_name', trans('validation.attributes.last_name'), ['class' => 'col-md-4 control-label']) !!}
+							<div class="col-md-6">
+								{!! Form::input('last_name', 'last_name', old('last_name'), ['class' => 'form-control']) !!}
+							</div>
+						</div>
+
+						<div class="form-group">
+							{!! Form::label('flat', trans('validation.attributes.flat'), ['class' => 'col-md-4 control-label']) !!}
+							<div class="col-md-6">
+                                {!! Form::select('flat', $flatsList, null, ['placeholder' => trans('validation.attributes.flat_placeholder'), 'class' => 'form-control']) !!}
+							</div>
+						</div>
+
+						<div class="form-group">
 							{!! Form::label('email', trans('validation.attributes.email'), ['class' => 'col-md-4 control-label']) !!}
 							<div class="col-md-6">
 								{!! Form::input('email', 'email', old('email'), ['class' => 'form-control']) !!}

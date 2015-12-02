@@ -57,9 +57,9 @@ return [
     ],
     'using_blade_extensions' => 'Использование Blade расширений',
     'view_console_it_works' => 'Испрользуя консоль браузера, вы можете увидеть сообщение \'it works!\' ,которое исходит от FrontendController@index',
-    'welcome_to' => 'Добро пожаловать в :place',
-    'you_can_see_because' => 'Вы видите это, потому что у вас роль \':role\'!',
-    'you_can_see_because_permission' => 'Вы видите это, потому что у вас есть разрешение \':permission\'!',
+    'welcome_to' => 'Ласкаво просимо до порталу :place',
+    'you_can_see_because' => 'Ви бачете це, тому що у вас є роль \':role\'!',
+    'you_can_see_because_permission' => 'Ви бачете це, тому що у вас є дозвіл на \':permission\'!',
     'you_have' => [
         'messages' => '{0} У вас нет сообщений|{1} У вас есть 1 сообщение|[2,Inf] У вас :number сообщений',
         'notifications' => '{0} У вас нет уведомлений|{1} У вас 1 уведомление|[2,Inf] У вас :number уведомлений',
@@ -71,5 +71,6 @@ return [
     'role' => '[0,1]Роль|[2,Inf]Ролей',
     'user' => '[0,1]Пользователь|[2,Inf]Пользователей',
     'last_modified' => 'Востаннє відредаговано :last_modified, :user_name',
-
+    'important_info_label' => 'Важлива інформація!',
+    'be_registered' => link_to_action('Frontend\Auth\AuthController@getRegister', 'Зареєструйтесь').', щоб мати доступ до "внутрішніх" ресурсів порталу.',
 ];

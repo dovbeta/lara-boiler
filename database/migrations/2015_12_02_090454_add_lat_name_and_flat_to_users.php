@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUpdatedByToFlats extends Migration
+class AddLatNameAndFlatToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,9 @@ class AddUpdatedByToFlats extends Migration
      */
     public function up()
     {
-        Schema::table('flats', function (Blueprint $table) {
-            $table->integer('updated_by')->unsigned();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('last_name');
+            $table->string('flat_id');
         });
     }
 
@@ -24,8 +25,8 @@ class AddUpdatedByToFlats extends Migration
      */
     public function down()
     {
-        Schema::table('flats', function (Blueprint $table) {
-            $table->dropColumn('updated_by');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['last_name', 'flat_id']);
         });
     }
 }

@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Frontend\Auth;
 
+use App\Flat;
 use Illuminate\Http\Request;
 use App\Exceptions\GeneralException;
 use App\Http\Controllers\Controller;
@@ -30,7 +31,9 @@ class AuthController extends Controller
      */
     public function getRegister()
     {
-        return view('frontend.auth.register');
+        $flatsList = Flat::all()->lists('number', 'id');
+
+        return view('frontend.auth.register', compact('flatsList'));
     }
 
     /**
