@@ -13,7 +13,10 @@
 
                       <!-- Nav tabs -->
                       <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">{{ trans('navs.my_information') }}</a></li>
+                        <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-user"></i> {{ trans('navs.my_information') }}</a></li>
+                        @if ($flat)
+                            <li role="presentation" class=""><a href="#flat" aria-controls="flat" role="tab" data-toggle="tab"><i class="fa fa-building"></i> {{ trans('flats.flat_label', ['flat_number' => $flat->number]) }}</a></li>
+                        @endif
                       </ul>
 
                       <div class="tab-content">
@@ -21,8 +24,8 @@
                         <div role="tabpanel" class="tab-pane active" id="profile">
                             <table class="table table-striped table-hover table-bordered dashboard-table">
                                 <tr>
-                                    <th>{{ trans('validation.attributes.name') }}</th>
-                                    <td>{!! $user->name . ' ' . $user->last_name !!}</td>
+                                    <th class="col-md-2">{{ trans('validation.attributes.name') }}</th>
+                                    <td class="col-md-8">{!! $user->name . ' ' . $user->last_name !!}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ trans('validation.attributes.email') }}</th>
@@ -45,6 +48,35 @@
                                 </tr>
                             </table>
                         </div><!--tab panel profile-->
+
+                          @if ($flat)
+                        <div role="tabpanel" class="tab-pane" id="flat">
+                            <table class="table table-striped table-hover table-bordered dashboard-table">
+                                <tr>
+                                    <th class="col-md-2">{{ trans('flats.area') }}</th>
+                                    <td class="col-md-8">{!! $flat->areaString()  !!}</td>
+                                </tr>
+                                <tr>
+                                    <th>{{ trans('flats.rooms_number') }}</th>
+                                    <td>{!! $flat->rooms_number !!}</td>
+                                </tr>
+                                <tr>
+                                    <th>{{ trans('flats.entrance') }}</th>
+                                    <td>{!! $flat->entrance !!}</td>
+                                </tr>
+                                <tr>
+                                    <th>{{ trans('flats.floor') }}</th>
+                                    <td>{!! $flat->floor !!}</td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td>
+                                        {!! link_to_action('Frontend\FlatsController@meters', '', [$flat->id], ['class'=>'fa fa-tachometer btn btn-primary', 'title' => trans('navs.meters')]) !!}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div><!--tab panel flat-->
+                          @endif
 
                       </div><!--tab content-->
 

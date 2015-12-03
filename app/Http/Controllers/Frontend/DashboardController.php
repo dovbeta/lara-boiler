@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Frontend;
 
+use App\Flat;
 use App\Http\Controllers\Controller;
 
 /**
@@ -13,7 +14,9 @@ class DashboardController extends Controller {
 	 */
 	public function index()
 	{
-		return view('frontend.user.dashboard')
-			->withUser(auth()->user());
+        $user = auth()->user();
+        $flat = Flat::find($user->flat_id);
+		return view('frontend.user.dashboard', compact('flat'))
+			->withUser($user);
 	}
 }

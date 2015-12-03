@@ -13,6 +13,12 @@ use Illuminate\Http\Response;
 
 class MetersController extends Controller
 {
+    public function __constructor()
+    {
+        $this->middleware('auth');
+        $this->middleware('osbb', ['except' => ['index','show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -20,6 +20,7 @@ return [
     'entrance' => 'Під’їзд',
     'floor' => 'Поверх',
     'area' => 'Площа',
+    'area_string' => ':area м<sup>2</sup>',
 
 
 ];

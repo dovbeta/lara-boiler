@@ -20,7 +20,7 @@ class FlatsController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('osbb', ['except' => ['index','show']]);
+        $this->middleware('osbb', ['except' => ['index','show', 'meters']]);
     }
 
     /**

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'my_information' => 'Моя інформація',
+    'my_information' => 'Профайл',
     'change_password' => 'Змінити пароль',
     'administration' => 'Адміністрування',
     'dashboard' => 'Огляд',

@@ -21,4 +21,10 @@ class Flat extends Model
     {
         return $this->hasMany('App\Meter');
     }
+
+    public function areaString()
+    {
+        return trans('flats.area_string', ['area' => $this->area]);
+    }
+
 }

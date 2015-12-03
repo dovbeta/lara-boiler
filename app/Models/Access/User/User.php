@@ -63,7 +63,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public function isOSBB()
     {
-        return $this->hasRoles(['ОСББ'], true);
+        return $this->hasRoles(['ОСББ', 'Administrator'], false);
     }
 
 }
