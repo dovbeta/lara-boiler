@@ -12,7 +12,7 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-                    @if (access()->hasRoles(['Administrator', 1]))
+                    @if (access()->hasRoles(['Administrator', 'OSBB'], false))
 					<li>{!! link_to('flats', trans('navs.flats')) !!}</li>
 					<li>{!! link_to('meters', trans('navs.meters')) !!}</li>
                     @endif

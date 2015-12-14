@@ -81,7 +81,7 @@ class EloquentAuthenticationRepository implements AuthenticationContract {
 			return true;
 		}
 
-		throw new GeneralException('These credentials do not match our records.');
+		throw new GeneralException(trans('auth.failed'));
 	}
 
 	/**

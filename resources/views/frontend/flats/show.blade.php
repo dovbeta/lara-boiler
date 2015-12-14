@@ -19,6 +19,10 @@
 
                 <div class="panel-body">
                     <dl class="dl-horizontal">
+                        <dt>{{ trans('crud.flats.area') }}:</dt>
+                        <dd>{!! $flat->areaString() !!}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
                         <dt>{{ trans('crud.flats.rooms_number') }}:</dt>
                         <dd>{!! $flat->rooms_number !!}</dd>
                     </dl>
@@ -29,10 +33,6 @@
                     <dl class="dl-horizontal">
                         <dt>{{ trans('crud.flats.floor') }}:</dt>
                         <dd>{!! $flat->floor !!}</dd>
-                    </dl>
-                    <dl class="dl-horizontal">
-                        <dt>{{ trans('crud.flats.area') }}:</dt>
-                        <dd>{!! $flat->area !!}</dd>
                     </dl>
                     <p class="text-muted">
                         @if ($user)

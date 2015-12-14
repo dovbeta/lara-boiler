@@ -21,6 +21,7 @@ class FlatsController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('osbb', ['except' => ['index','show', 'meters']]);
+        $this->middleware('admin', ['only' => ['create']]);
     }
 
     /**
@@ -96,7 +97,6 @@ class FlatsController extends Controller
     public function update(StoreFlatRequest $request, $id)
     {
         $flat = Flat::findOrFail($id);
-        $flat->updated_by = 1;
         $flat->update($request->all());
         return redirect()->action('Frontend\FlatsController@show', $flat->number)->withFlashSuccess(trans('alerts.flats.updated'));
     }
@@ -121,8 +121,9 @@ class FlatsController extends Controller
      */
     public function meters($flatId)
     {
+        $flat = Flat::findOrFail($flatId);
         $meters = Meter::where('flat_id', '=', $flatId)->orderBy('number')->get();
-        return view('frontend.meters.index', compact(['meters', 'flatId']));
+        return view('frontend.meters.index', compact(['meters', 'flat']));
     }
 
     public function addMeter($flatId)

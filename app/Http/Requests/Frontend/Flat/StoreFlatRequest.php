@@ -26,10 +26,10 @@ class StoreFlatRequest extends Request {
 	public function rules()
 	{
 		return [
-			'number'	=> 'required|alpha_num|max:4',
-			'rooms_number'	=> 'required|integer|min:1',
-			'entrance'	=> 'required|integer|min:1|max:13',
-			'floor'	=> 'required|integer|min:1|max:10',
+//			'number'	=> 'required|alpha_num|max:4',
+//			'rooms_number'	=> 'required|integer|min:1',
+//			'entrance'	=> 'required|integer|min:1|max:13',
+//			'floor'	=> 'required|integer|min:1|max:10',
 			'area'	=> 'required|numeric|min:0',
 		];
 	}

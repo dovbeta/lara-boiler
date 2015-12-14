@@ -7,10 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Flat extends Model
 {
     protected $fillable = [
-        'number',
-        'rooms_number',
-        'entrance',
-        'floor',
         'area',
     ];
 

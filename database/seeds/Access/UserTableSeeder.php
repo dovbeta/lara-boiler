@@ -21,17 +21,19 @@ class UserTableSeeder extends Seeder {
 		//Add the master administrator, user id of 1
 		$users = [
 			[
-				'name' => 'Admin Istrator',
-				'email' => 'admin@admin.com',
-				'password' => bcrypt('1234'),
+				'name' => 'ОСББ',
+				'last_name' => 'Адміністратор',
+				'email' => 'admin@p171.lviv.ua',
+				'password' => bcrypt('asdasdasd'),
 				'confirmation_code' => md5(uniqid(mt_rand(), true)),
 				'confirmed' => true,
 				'created_at' => Carbon::now(),
 				'updated_at' => Carbon::now()
 			],
 			[
-				'name' => 'Default User',
-				'email' => 'user@user.com',
+				'name' => 'ОСББ',
+				'last_name' => 'Правління',
+				'email' => 'pasichna171@gmail.com',
 				'password' => bcrypt('1234'),
 				'confirmation_code' => md5(uniqid(mt_rand(), true)),
 				'confirmed' => true,

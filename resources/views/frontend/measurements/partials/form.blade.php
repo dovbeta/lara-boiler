@@ -9,7 +9,7 @@
         'heating' => trans('meters.commodity.heating'),
         'hot_water' => trans('meters.commodity.hot_water'),
         'cold_water' => trans('meters.commodity.cold_water')
-        ], $meter->type->code, ['placeholder' => trans('meters.commodity_placeholder'), 'class' => 'form-control']) !!}
+        ], null, ['placeholder' => trans('meters.commodity_placeholder'), 'class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::submit(trans('crud.save_button'), ['class' => 'btn btn-primary form-control']) !!}

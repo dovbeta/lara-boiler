@@ -32,6 +32,15 @@ class RoleTableSeeder extends Seeder {
 		$role_model = config('access.role');
 		$user = new $role_model;
 		$user->name = 'User';
+		$user->sort = 3;
+		$user->created_at = Carbon::now();
+		$user->updated_at = Carbon::now();
+		$user->save();
+
+		//id = 3
+		$role_model = config('access.role');
+		$user = new $role_model;
+		$user->name = 'OSBB';
 		$user->sort = 2;
 		$user->created_at = Carbon::now();
 		$user->updated_at = Carbon::now();

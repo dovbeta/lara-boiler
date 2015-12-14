@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFlatsTable extends Migration
+class AddMeterTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,10 @@ class AddFlatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('flats', function (Blueprint $table) {
+        Schema::create('meter_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string("number");
-            $table->float("area");
-            $table->integer("rooms_number")->unsigned;
-            $table->integer("entrance")->unsigned;
-            $table->integer("floor")->unsigned;
+            $table->enum('code', ['heating', 'cold_water', 'hot_water', 'gas', 'electricity']);
+            $table->string('unit');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class AddFlatsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('flats');
+        Schema::drop('meter_types');
     }
 }

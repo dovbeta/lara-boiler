@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Flat;
 use App\Http\Requests\Frontend\StoreMeterRequest;
+use App\Measurement;
 use App\Meter;
+use App\MeterType;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class MetersController extends Controller
 {
@@ -53,8 +56,8 @@ class MetersController extends Controller
         $meter = new Meter;
         $meter->flat_id = $flat->id;
         $meter->number = $request->get('number');
-        $meter->commodity = $request->get('commodity');
-        $meter->save();
+        $meterType = MeterType::where('code', '=', $request->get('commodity'))->first();
+        $meterType->meters()->save($meter);
         return redirect()->action('Frontend\FlatsController@meters', $request->get('flat_id'))->withFlashSuccess(trans('alerts.meters.created'));
     }
 
@@ -93,7 +96,9 @@ class MetersController extends Controller
     public function update(StoreMeterRequest $request, $id)
     {
         $meter = Meter::findOrFail($id);
-        $meter->update($request->all());
+        $meter->number = $request->get('number');
+        $meterType = MeterType::where('code', '=', $request->get('commodity'))->first();
+        $meterType->meters()->save($meter);
 
         return redirect()->action('Frontend\FlatsController@meters', $request->get('flat_id'))->withFlashSuccess(trans('alerts.meters.updated'));
     }
@@ -108,5 +113,41 @@ class MetersController extends Controller
     {
         //
     }
+
+    /**
+     * @param $id
+     * @return string
+     */
+    public function measurements($id)
+    {
+        $meter = Meter::findOrFail($id);
+        $measurements = Measurement::where('meter_id', '=', $id)->orderBy('updated_at', 'DESC')->get();
+        return view('frontend.meters.measurements.list', compact(['meter', 'measurements']));
+    }
+
+    /**
+     * @param $id
+     * @return string
+     */
+    public function addMeasurement($id)
+    {
+        $meter = Meter::findOrFail($id);
+        return view('frontend.meters.measurements.create', compact('meter'));
+    }
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return mixed
+     */
+    public function storeMeasurement($id, Request $request)
+    {
+        $measurement = new Measurement($request->all());
+        $measurement->updated_by = Auth::user()->id;
+        $meter = Meter::findOrFail($id);
+        $meter->measurements()->save($measurement);
+        return redirect()->action('Frontend\MetersController@measurements', $id)->withFlashSuccess(trans('measurements.created_message'));
+    }
+
 
 }

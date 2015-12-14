@@ -11,18 +11,12 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            {{ trans('meters.commodity_label') }}: {!! trans('meters.commodity.' . $meter->type->code) !!}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            {{ trans('meters.unit_label') }}: {!! trans('meters.unit.' . $meter->type->unit) !!}
+                            {{ trans('crud.meters.commodity') }}: {!! trans('meters.commodity.' . $meter->commodity) !!}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             {!! link_to_action('Frontend\MetersController@edit', '', [$meter->id], ['class'=>'fa fa-edit btn btn-primary', 'title' => trans('crud.edit_button')]) !!}
-                            {!! link_to_action('Frontend\MetersController@measurements', '', [$meter->id], ['class'=>'fa fa-terminal btn btn-primary', 'title' => trans('measurements.button_title')]) !!}
                         </div>
                     </div>
                 </div>

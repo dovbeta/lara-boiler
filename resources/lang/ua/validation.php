@@ -132,6 +132,7 @@ return [
         'permission_group_name' => 'Назва групи',
         'group' => 'Група',
         'group-sort' => 'Сортування групи',
+        'commodity' => 'Тип ресурсу',
     ],
 
 ];
